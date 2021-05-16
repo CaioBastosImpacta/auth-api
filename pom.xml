@@ -52,6 +52,7 @@
 			<artifactId>spring-security-oauth2</artifactId>
 			<version>${spring-security-oauth2.version}</version>
 		</dependency>
+
 	</dependencies>
 
 	<build>
