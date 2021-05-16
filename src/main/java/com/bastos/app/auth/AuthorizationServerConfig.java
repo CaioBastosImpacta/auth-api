@@ -30,9 +30,10 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
             .inMemory()
                 .withClient("bastos-auth-web")
                 .secret(passwordEncoder.encode("bastos123456"))
-                .authorizedGrantTypes("password", "refresh_token")
+                .authorizedGrantTypes("password" /*"refresh_token"*/)
                 .scopes("write", "read")
             .accessTokenValiditySeconds(60 * 60 * 6) // 6 horas (padrão é 12 horas)
+            //.refreshTokenValiditySeconds(60 * 24 * 60 * 60) // 60 dias (padrão é 30 horas)
         .and()
                 .withClient("check-bastos-crud")
                 .secret(passwordEncoder.encode("checkbastos123456"));
@@ -49,5 +50,6 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
         endpoints
             .authenticationManager(authenticationManager)
             .userDetailsService(userDetailsService);
+//            .reuseRefreshTokens(false);
     }
 }
