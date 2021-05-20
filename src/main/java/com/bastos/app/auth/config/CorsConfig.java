@@ -1,4 +1,4 @@
-package com.bastos.app.auth;
+package com.bastos.app.auth.config;
 
 import java.util.Collections;
 
