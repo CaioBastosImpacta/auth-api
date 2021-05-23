@@ -50,19 +50,6 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
             .refreshTokenValiditySeconds(60 * 24 * 60 * 60) // 60 dias (padrão é 30 horas)
 
             .and()
-                .withClient("foodanalytics")
-                .secret(passwordEncoder.encode(""))
-                .authorizedGrantTypes("authorization_code")
-                .scopes("write", "read")
-                .redirectUris("http://www.foodanalytics.local:8082")
-
-            .and()
-                .withClient("webadmin")
-                .authorizedGrantTypes("implicit")
-                .scopes("write", "read")
-                .redirectUris("http://aplicacao-cliente")
-
-            .and()
                 .withClient("bastos-auth-crud")
                 .secret(passwordEncoder.encode("bastosCrud123456"))
                 .authorizedGrantTypes("client_credentials")
